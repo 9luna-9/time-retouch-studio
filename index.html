@@ -2541,6 +2541,7 @@
       title: 'Project v1.0 : Launch day',
       location: 'Seoul',
       photo: null,
+      noPhoto: true,
       diary: `드디어 내가 2월 말부터 시간 날 때마다 틈틈이 준비했던 이 대형 프로젝트를 그에게 전격 공개하는 날. 그의 엄청난 리액션을 기대하고 있어! 실제로 이 프로젝트에 투입한 시간을 계산해본다면 거의 100시간은 상회할 듯해.
 
 돌이켜 생각해보면, 지난 3달은 정말 영화 같은 시간이었어. 내가 이렇게 마음을 쏟고 몰입하게 되는 사람을 만나서, 심장이 터져버릴 것 같은 순간들을 마주한 것. 그리고 살면서 처음으로 체험하는, 타인과 본질이 통한다는 느낌.
@@ -2605,6 +2606,9 @@
         <div class="log-content">
           <div class="log-content-inner">
             ${(() => {
+              // noPhoto가 true면 사진 영역 자체를 렌더링 안 함
+              if (log.noPhoto) return '';
+
               // photos 배열 우선, 없으면 photo 단일, 둘 다 없으면 placeholder
               const photos = log.photos && log.photos.length
                 ? log.photos
